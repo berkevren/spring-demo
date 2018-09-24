@@ -1,13 +1,12 @@
 package springdemo;
 
-public class BaseballCoach implements Coach {
+public class FitnessCoach implements Coach {
 
     private FortuneService fortuneService;
     private String emailAddress;
     private String team;
 
-    public BaseballCoach(FortuneService fortuneService) {
-        this.fortuneService = fortuneService;
+    public FitnessCoach() {
     }
 
     public String getEmailAddress() {
@@ -26,14 +25,17 @@ public class BaseballCoach implements Coach {
         this.team = team;
     }
 
+    public void setFortuneService(FortuneService fortuneService) {
+        this.fortuneService = fortuneService;
+    }
+
     @Override
     public String getDailyWorkout() {
-        return "Spend 30 minutes on batting practice";
+        return "Give me 3 sets of 5 on the bench press";
     }
 
     @Override
     public String getDailyFortune() {
         return fortuneService.getFortune();
     }
-
 }
