@@ -5,8 +5,14 @@ public class FitnessCoach implements Coach {
     private FortuneService fortuneService;
     private String emailAddress;
     private String team;
+    private String dailyFortune;
 
     public FitnessCoach() {
+    }
+
+    public FitnessCoach(FortuneService fortuneService) {
+        this.fortuneService = fortuneService;
+        this.dailyFortune = fortuneService.getFortune();
     }
 
     public String getEmailAddress() {
@@ -36,6 +42,6 @@ public class FitnessCoach implements Coach {
 
     @Override
     public String getDailyFortune() {
-        return fortuneService.getFortune();
+        return dailyFortune;
     }
 }

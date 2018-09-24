@@ -22,4 +22,12 @@ public class TrackCoach implements Coach {
         return "Just Do It: " + fortuneService.getFortune();
     }
 
+    public void beanStartup() {
+        System.out.println("TrackCoach: inside method beanStartup");
+    }
+
+    public void beanCleanup() {
+        System.out.println("TrackCoach: inside method beanCleanup");
+    }
+
 }
