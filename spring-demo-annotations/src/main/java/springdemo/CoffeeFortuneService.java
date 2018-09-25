@@ -25,7 +25,6 @@ public class CoffeeFortuneService implements FortuneService {
         random = new Random();
     }
 
-    // @PostContruct doesn't work
     @PostConstruct
     private void drinkCoffee(String coffeeFortunesAddress) {
 
