@@ -5,6 +5,9 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 @Component("omarIsuf")
 public class FitnessCoach implements Coach {
 
@@ -18,10 +21,21 @@ public class FitnessCoach implements Coach {
     @Value("${sports.team}")
     private String team;
 
+    @Autowired
     public FitnessCoach() {
         System.out.println(">> FitnessCoach: inside default constructor");
         System.out.println(">> FitnessCoach's email: " + email);
         System.out.println(">> FitnessCoach's team: " + team);
+    }
+
+    @PostConstruct
+    public void startup() {
+        System.out.println(">> FitnessCoach: inside of startup()");
+    }
+
+    @PreDestroy
+    public void cleanup() {
+        System.out.println(">> FitnessCoach: inside of cleanup()");
     }
 
     @Override

@@ -4,6 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 @Component
 public class TennisCoach implements Coach {
 
@@ -18,6 +21,16 @@ public class TennisCoach implements Coach {
         System.out.println(">> TennisCoach: inside constructor using @autowired and " +
                 "@ qualifier");
         this.fortuneService = fortuneService;
+    }
+
+    @PostConstruct
+    public void startup() {
+        System.out.println(">> FitnessCoach: inside of startup()");
+    }
+
+    @PreDestroy
+    public void cleanup() {
+        System.out.println(">> FitnessCoach: inside of cleanup()");
     }
 
     /*
