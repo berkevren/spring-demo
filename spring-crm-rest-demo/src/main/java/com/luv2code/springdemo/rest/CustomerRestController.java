@@ -42,6 +42,5 @@ public class CustomerRestController {
 
         customerService.saveCustomer(customer);
         return customer;
-
     }
 }
